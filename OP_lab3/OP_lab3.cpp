@@ -1,17 +1,19 @@
 #include <iostream>
+#include <cmath>
 
 int main()
 {
-    const int n = 2, p = 4;     //
-    int a;
+    const double e = 0.0001; 
+    int a;                   
 
     std::cin >> a;
 
     if (a > 0) {
-        double x = 1;
-        for (int i = 0; i < p; i++) {
-            x = (((n - 1) * x) + a / pow(x, n - 1)) / n;
-        }
+        double y, x = 1, l;
+        do {
+            y = x;
+            x = (x + (a / x)) / 2;
+        } while (abs(y - x) > e);
         printf("%.4f", x);
     }
     else

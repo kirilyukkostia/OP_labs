@@ -1,10 +1,11 @@
-p = 4 # точність
-n = 2 # степінь
+e = 0.0001 # точність
 a = int(input())
 
 if (a > 0) :
     x = 1
-    for i in range(0, p):
-        x = ( ((n - 1) * x) + a / pow(x, n - 1)) / n
-    print(format(x, "." + str(p) + "f"))
+    y = 0
+    while(abs(y - x) > e):
+        y = x
+        x = ( x + a / x) / 2
+    print(format(x, ".4f"))
 else : print("Number is negative or equal 0")
